@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>btn1 v.4</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style type="text/css">
+        @import url("https://fonts.googleapis.com/css?family=Lato:400,100,300,700,100italic,300italic,400italic,700italic,900,900italic");
+        @import url("https://fonts.googleapis.com/css?family=Raleway:400,700");
+
+        /*#########################################################################################################################*/
+        /*Global Properties*/
+        /*#########################################################################################################################*/
+
+        /*22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222*/
+        /*Layout*/
+        /*22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222*/
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        .container{
+            width:80%;
+            margin:auto;
+            padding-top:20px;
+            padding-bottom:20px;
+            overflow:hidden;
+        }
+        .grid-33{
+            display:grid;
+            grid-template-columns:1fr 1fr 1fr;
+            grid-template-rows:1fr 1fr 1fr;
+            min-height:500px;
+        }
+        @media (max-width:1000px){
+            .grid-33{
+                grid-template-columns: repeat(2, minmax(100px, 1fr));
+                grid-template-rows:1fr 1fr 1fr;
+            }}
+        @media (max-width:600px){
+            .grid-33{
+                grid-template-columns: repeat(1, minmax(100px, 1fr));
+                grid-template-rows:1fr 1fr 1fr;
+            }}
+        .grid-bg {
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        /*222222222222222222222222222222222222222222222222222222222222222222222222222222222222222*/
+        /*Colors*/
+        /*222222222222222222222222222222222222222222222222222222222222222222222222222222222222222*/
+        :root{
+            --color-7: rgba(36,37,130,1);
+            --color-8: rgba(85,45,103,1);
+            --color-9: rgba(246,76,114,1);
+            --color-10: rgba(153,115,142,1);
+            --color-11: rgba(47,47,162,1);
+            --color-12: rgba(249, 105, 14, 1);
+        }
+        /*333333333333333333333333333333333333333333333333333333333333333333333333333333333333333*/
+        /*Grid Background Colors*/
+        /*333333333333333333333333333333333333333333333333333333333333333333333333333333333333333*/
+
+        body .grid-bg.bg-7 {
+            background: var(--color-7);
+        }
+        body .grid-bg.bg-8 {
+            background: var(--color-8);
+        }
+        body .grid-bg.bg-9 {
+            background: var(--color-9);
+        }
+        body .grid-bg.bg-10 {
+            background: var(--color-10);
+        }
+        body .grid-bg.bg-11 {
+            background: var(--color-11);
+        }
+        body .grid-bg.bg-12 {
+            background: var(--color-12);
+        }
+
+        /*2222222222222222222222222222222222222222222222222222222222222222222222222222222222222222*/
+        /*Headers*/
+        /*2222222222222222222222222222222222222222222222222222222222222222222222222222222222222222*/
+
+        h2 {
+            text-align: center;
+            font-family: 'Raleway';
+            font-weight: 600;
+            color: #fff;
+        }
+
+        /*2222222222222222222222222222222222222222222222222222222222222222222222222222222222222222*/
+        /*Buttons*/
+        /*2222222222222222222222222222222222222222222222222222222222222222222222222222222222222222*/
+
+        button {
+            background: transparent;
+            border: 3px solid #ffffff;
+            border-radius: 5px;
+            color: #ffffff;
+            cursor: pointer;
+            font-family: "Lato";
+            font-size: 1em;
+            font-weight: 900;
+            letter-spacing: 0.1em;
+            overflow: hidden;
+            outline: none;
+            position: relative;
+            text-transform: uppercase;
+        }
+
+        /*##########################################################################################*/
+        /*Button Text Colors*/
+        /*##########################################################################################*/
+        .txt-c-7{
+            color: rgba(36,37,130,1);
+        }
+        .txt-c-8{
+            color: rgba(85,45,103,1);
+        }
+        .txt-c-9{
+            color: rgba(246,76,114,1);
+        }
+        .color-10{
+            color: var(--color-10);
+            border: 2px var(--color-10) solid;
+        }
+        .color-11{
+            color: var(--color-11);
+            border: 2px var(--color-11) solid;
+        }
+        .color-12{
+            color: var(--color-12);
+            border: 2px var(--color-12) solid;
+        }
+
+        .color-7:hover {
+            background-color: var(--color-7);
+            color: #fff
+        }
+        .color-8:hover {
+            background-color: var(--color-8);
+            color: #fff
+        }
+        .color-9:hover {
+            background-color: var(--color-9);
+            color: #fff
+        }
+        .color-10:hover {
+            background-color: var(--color-10);
+            color: #fff
+        }
+        .color-11:hover {
+            background-color: var(--color-11);
+            color: #fff
+        }
+        .color-12:hover {
+            background-color: var(--color-12);
+            color: #fff
+        }
+        /*##########################################################################################*/
+        /*Button 3 styles Originally by https://codepen.io/lichin-lin/*/
+        /*##########################################################################################*/
+        /*##########################################################################################*/
+        /*Global Styles*/
+        /*##########################################################################################*/
+
+
+        /*##########################################################################################*/
+        /*button object styles*/
+        /*##########################################################################################*/
+
+
+        .toggle> button{
+            overflow: visible;
+            /*background:red;*/
+        }
+
+        .btn-sm{
+            width:115px;
+            height:49px;
+        }
+        .btn-md{
+            width:155px;
+            height:49px;
+        }
+        .btn-lg{
+            width:200px;
+            height:49px;
+        }
+        .btn-xl{
+            width:300px;
+            height:49px;
+        }
+        .btn-sq{
+            width:49px;
+            height:49px;
+        }
+        /*------------------------------------------------------------------------------------------*/
+        /*Animation and Hover Styles*/
+        /*------------------------------------------------------------------------------------------*/
+
+        button {
+            -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+            -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+        }
+        button:hover {
+            background: rgba(255,255,255,.1);
+            color: rgba(106,177,201,1);
+            border: 3px solid rgba(106,177,201,1);
+            -webkit-transition: all 0.35s ease;
+            transition: all 0.35s ease;
+        }
+        button:hover >a {
+            color: rgba(106,177,201,1);
+            -webkit-transition: all 0.35s ease;
+            transition: all 0.35s ease;
+        }
+        button:active {
+            -webkit-transform: translate(5px, 5px);
+            transform: translate(5px, 5px);
+        }
+
+
+        /*##########################################################################################*/
+        /*Toggle Button*/
+        /*##########################################################################################*/
+
+        .btn-toggle {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            padding: 12px;
+            background-color: transparent;
+            border-color: transparent;
+            outline: none;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            transition: -webkit-transform 0.1s ease-out;
+            transition: transform 0.1s ease-out;
+            transition: transform 0.1s ease-out, -webkit-transform 0.1s ease-out;
+        }
+        .btn-toggle:active {
+            -webkit-transform: translateY(4px);
+            transform: translateY(4px);
+        }
+        .toggle > button:hover {
+            background: none;
+            color: rgba(106,177,201,1);
+            border: none;
+        }
+
+        /*Changes the color of the toggle icon during animation*/
+        /*.btn-toggle:focus .line:after {*/
+        /*  background-color: red;*/
+        /*}*/
+
+
+
+        /*------------------------------------------------------------------------------------------*/
+        /*Toggle Button Animation and Styles*/
+        /*Note: Did not find a way to separate animation from style*/
+        /*------------------------------------------------------------------------------------------*/
+
+        .line {
+            display: block;
+            width: 60px;
+            padding: 3.75px;
+        }
+
+        .line:after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 7.5px;
+            background-color: white;
+            border-radius: 2px;
+
+            /*...........................*/
+            /*Not sure what the code below does*/
+            /*...........................*/
+            /*-webkit-transform: translateZ(0) rotate(0);*/
+            /*        transform: translateZ(0) rotate(0);*/
+            /*transition: background-color 0.2s ease-out;*/
+        }
+
+
+
+        .open .line:nth-child(1) {
+            -webkit-animation: jump-1 0.9s forwards ease;
+            animation: jump-1 0.9s forwards ease;
+        }
+        .open .line:nth-child(1):after {
+            -webkit-animation: line-1 0.9s forwards ease-in-out;
+            animation: line-1 0.9s forwards ease-in-out;
+        }
+        .open .line:nth-child(2) {
+            -webkit-animation: jump-2 0.9s forwards ease;
+            animation: jump-2 0.9s forwards ease;
+        }
+        .open .line:nth-child(2):after {
+            -webkit-animation: line-2 0.9s forwards ease-in-out;
+            animation: line-2 0.9s forwards ease-in-out;
+        }
+        /*...........................*/
+        /*close animation*/
+        /*...........................*/
+
+        .close .line:nth-child(1) {
+            animation: jump-1 0.9s reverse ease;
+        }
+        .close .line:nth-child(1):after {
+            animation: line-1 0.9s reverse ease-in-out;
+        }
+        .close .line:nth-child(2) {
+            animation: jump-2 0.9s reverse ease;
+        }
+        .close .line:nth-child(2):after {
+            animation: line-2 0.9s reverse ease-in-out;
+        }
+        .open .line:nth-child(3), .close .line:nth-child(3) {
+            -webkit-animation: jump-3 0.9s forwards ease-out;
+            animation: jump-3 0.9s forwards ease-out;
+        }
+
+
+
+
+
+        @-webkit-keyframes line-1 {
+            10% {
+                -webkit-transform: translateZ(0) rotate(0);
+                transform: translateZ(0) rotate(0);
+            }
+            80% {
+                -webkit-transform: translateZ(0) rotate(395deg);
+                transform: translateZ(0) rotate(395deg);
+            }
+            90%, 100% {
+                -webkit-transform: translateZ(0) rotate(405deg);
+                transform: translateZ(0) rotate(405deg);
+            }
+        }
+
+        @keyframes line-1 {
+            10% {
+                -webkit-transform: translateZ(0) rotate(0);
+                transform: translateZ(0) rotate(0);
+            }
+            80% {
+                -webkit-transform: translateZ(0) rotate(395deg);
+                transform: translateZ(0) rotate(395deg);
+            }
+            90%, 100% {
+                -webkit-transform: translateZ(0) rotate(405deg);
+                transform: translateZ(0) rotate(405deg);
+            }
+        }
+        @-webkit-keyframes line-2 {
+            10% {
+                -webkit-transform: translateZ(0) rotate(0);
+                transform: translateZ(0) rotate(0);
+            }
+            20% {
+                -webkit-transform: translateZ(0) rotate(10deg);
+                transform: translateZ(0) rotate(10deg);
+            }
+            90%, 100% {
+                -webkit-transform: translateZ(0) rotate(-405deg);
+                transform: translateZ(0) rotate(-405deg);
+            }
+        }
+        @keyframes line-2 {
+            10% {
+                -webkit-transform: translateZ(0) rotate(0);
+                transform: translateZ(0) rotate(0);
+            }
+            20% {
+                -webkit-transform: translateZ(0) rotate(10deg);
+                transform: translateZ(0) rotate(10deg);
+            }
+            90%, 100% {
+                -webkit-transform: translateZ(0) rotate(-405deg);
+                transform: translateZ(0) rotate(-405deg);
+            }
+        }
+        @-webkit-keyframes jump-1 {
+            10% {
+                -webkit-transform: translateY(0);
+                transform: translateY(0);
+            }
+            50% {
+                -webkit-transform: translateY(-90px);
+                transform: translateY(-90px);
+            }
+            90%, 100% {
+                -webkit-transform: translateY(-7.5px);
+                transform: translateY(-7.5px);
+            }
+        }
+        @keyframes jump-1 {
+            10% {
+                -webkit-transform: translateY(0);
+                transform: translateY(0);
+            }
+            50% {
+                -webkit-transform: translateY(-90px);
+                transform: translateY(-90px);
+            }
+            90%, 100% {
+                -webkit-transform: translateY(-7.5px);
+                transform: translateY(-7.5px);
+            }
+        }
+        @-webkit-keyframes jump-2 {
+            10% {
+                -webkit-transform: translateY(0);
+                transform: translateY(0);
+            }
+            50% {
+                -webkit-transform: translateY(-75px);
+                transform: translateY(-75px);
+            }
+            85%, 100% {
+                -webkit-transform: translateY(-22.5px);
+                transform: translateY(-22.5px);
+            }
+        }
+        @keyframes jump-2 {
+            10% {
+                -webkit-transform: translateY(0);
+                transform: translateY(0);
+            }
+            50% {
+                -webkit-transform: translateY(-75px);
+                transform: translateY(-75px);
+            }
+            85%, 100% {
+                -webkit-transform: translateY(-22.5px);
+                transform: translateY(-22.5px);
+            }
+        }
+        @-webkit-keyframes jump-3 {
+            10% {
+                -webkit-transform: translateY(-7.5px) rotate(15deg);
+                transform: translateY(-7.5px) rotate(15deg);
+            }
+            30% {
+                -webkit-transform: translateY(-30px) rotate(-10deg);
+                transform: translateY(-30px) rotate(-10deg);
+            }
+            50% {
+                -webkit-transform: translateY(7.5px) rotate(5deg);
+                transform: translateY(7.5px) rotate(5deg);
+            }
+            80% {
+                -webkit-transform: translateY(0);
+                transform: translateY(0);
+            }
+        }
+        @keyframes jump-3 {
+            10% {
+                -webkit-transform: translateY(-7.5px) rotate(15deg);
+                transform: translateY(-7.5px) rotate(15deg);
+            }
+            30% {
+                -webkit-transform: translateY(-30px) rotate(-10deg);
+                transform: translateY(-30px) rotate(-10deg);
+            }
+            50% {
+                -webkit-transform: translateY(7.5px) rotate(5deg);
+                transform: translateY(7.5px) rotate(5deg);
+            }
+            80% {
+                -webkit-transform: translateY(0);
+                transform: translateY(0);
+            }
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+<!---->
+<!--bg-1 button and background styling-->
+<!--btn adds padding or margin bottom to the div or button-->
+<!--btn1 is contains style for actual button, not background-->
+<body>
+<div class="grid-33">
+    <div class="grid-bg bg-7">
+        <div class="btn  btn-1">
+            <h2>Translate bg-7</h2>
+            <button class="btn-sm txt-c-9" href="#">click on me!</button>
+        </div>
+    </div>
+    <div class="grid-bg bg-8">
+        <div class="btn  btn-1">
+            <h2>Translate bg-8</h2>
+            <button class="btn-md" href="#">No, click on me!</button>
+        </div>
+    </div>
+    <div class="grid-bg bg-9">
+        <div class="btn  btn-1 hover-2">
+            <h2>Translate bg-9</h2>
+            <button class="btn-lg" href="#">Don't click on me!</button>
+        </div>
+    </div>
+    <!--Row 2-->
+    <div class="grid-bg bg-10">
+        <div class="btn  btn-1">
+            <h2>Translate bg-10</h2>
+            <button class="btn-xl" href="#">click on him &darr;</button>
+        </div>
+    </div>
+    <div class="grid-bg bg-11">
+        <div class="btn  btn-1">
+            <h2>Translate bg-11</h2>
+            <button class="btn-sq" href="#"><i class="fa fa-facebook"></i></button>
+        </div>
+    </div>
+    <div class="grid-bg bg-12">
+        <div class="btn  btn-1 toggle">
+            <h2>Translate bg-12</h2>
+            <button class="btn-toggle toggle" id="menu-toggle">
+                <div class="line animate"></div>
+                <div class="line animate"></div>
+                <div class="line animate"></div>
+            </button>
+        </div>
+    </div>
+    <div class="grid-bg bg-7">
+        <div class="btn  btn-1">
+            <h2>Translate</h2>
+            <button class="btn-sm" href="#">Close Button</button>
+        </div>
+    </div>
+    <div class="grid-bg bg-8">
+        <div class="btn  btn-1">
+            <h2>Translate</h2>
+            <button class="btn-sm" href="#">click on me!</button>
+        </div>
+    </div>
+    <div class="grid-bg bg-9">
+        <div class="btn  btn-1">
+            <h2>Translate</h2>
+            <button class="btn-sm" href="#">click on me!</button>
+        </div>
+    </div>
+</div>
+<script>
+    const btn = document.getElementById("menu-toggle");
+    const lines = btn.querySelectorAll(".line");
+    const cls = { open: "open", close: "close" };
+    let btnClass = cls.open;
+
+    btn.addEventListener("click", () => {
+        if (btn.classList.contains(cls.open)) {
+            btn.classList.remove(btnClass);
+            btnClass = cls.close;
+        } else if (btn.classList.contains(cls.close)) {
+            btn.classList.remove(btnClass);
+            btnClass = cls.open;
+        }
+        void btn.offsetWidth;
+        btn.classList.add(btnClass);
+    });
+</script>
+</body>
+</html>
